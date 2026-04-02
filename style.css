@@ -1,12 +1,12 @@
+/* Global */
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
     background: #0b0b0b;
-    color: white;
-
+    color: #fff;
     opacity: 0;
     transform: translateY(20px);
-    transition: 0.8s;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 body.loaded {
@@ -14,112 +14,159 @@ body.loaded {
     transform: translateY(0);
 }
 
-/* 🔥 LOADER */
+* {
+    box-sizing: border-box;
+}
+
+/* Loader */
 #loader {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: black;
+    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 40px;
+    color: silver;
     z-index: 9999;
-    transition: opacity 0.8s;
+    transition: opacity 0.8s ease;
 }
 
-/* HEADER */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
-    background: black;
-}
-
-nav a {
-    color: silver;
-    margin-left: 20px;
-    text-decoration: none;
-}
-
-/* HERO */
-.hero {
-    height: 80vh;
-    background: url('assets/images/hero.jpg') center/cover;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 25px 60px;
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 10;
 }
 
-.hero h2 {
+header .logo {
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: silver;
+}
+
+header nav a {
+    color: silver;
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #fff;
+}
+
+/* Hero */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/hero.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: 300;
+    margin-bottom: 20px;
     opacity: 0;
     transform: translateY(40px);
     animation: fadeUp 1s forwards;
     animation-delay: 0.5s;
 }
 
+.hero-content p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 14px 35px;
+    background: silver;
+    color: black;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: white;
+}
+
+.btn-secondary {
+    display: block;
+    margin: 15px;
+    padding: 12px 0;
+    text-align: center;
+    background: silver;
+    color: black;
+    font-weight: 500;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: white;
+}
+
+/* Cars */
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    padding: 80px 40px;
+}
+
+.car-card {
+    width: 330px;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.car-card h3 {
+    margin: 15px 15px 5px 15px;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.car-card p {
+    margin: 0 15px 15px 15px;
+    color: #bbb;
+    font-size: 15px;
+}
+
+.car-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(255,255,255,0.15);
+}
+
+/* Keyframes */
 @keyframes fadeUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* CAR CARDS */
-.cars {
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-}
-
-.car-card {
-    width: 300px;
-    background: #111;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-.car-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.car-card a {
-    display: block;
-    margin: 10px;
-    padding: 10px;
-    background: silver;
-    color: black;
-    text-align: center;
-}
-
-.car-card:hover {
-    transform: translateY(-10px) scale(1.03);
-}
-
-/* 🚗 CAR DETAIL PAGE */
-.car-detail {
-    display: flex;
-    gap: 40px;
-    padding: 40px;
-}
-
-.gallery img {
-    width: 100%;
-}
-
-.thumbnails {
-    display: flex;
-    gap: 10px;
-}
-
-.thumbnails img {
-    width: 80px;
-    cursor: pointer;
-}
-
-/* 💳 CHECKOUT */
-#cart-items {
-    padding: 20px;
 }
