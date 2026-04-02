@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C-Class</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<h1>C-Class</h1>
+
+<section class="car-detail">
+
+    <div class="gallery">
+        <img id="mainImage" src="../assets/images/cclass.jpg">
+
+        <div class="thumbnails">
+            <img src="../assets/images/cclass.jpg" onclick="changeImage(this)">
+            <img src="../assets/images/cclass2.jpg" onclick="changeImage(this)">
+        </div>
+    </div>
+
+    <div>
+        <h2>C300</h2>
+        <p>$45,000</p>
+
+        <ul>
+            <li>Engine: 2.0L Turbo</li>
+            <li>255 HP</li>
+            <li>Luxury Interior</li>
+        </ul>
+
+        <button onclick="addToCart('C300 - $45,000')">Add to Cart</button>
+    </div>
+
+</section>
+
+<script src="../script.js"></script>
+</body>
+</html>
